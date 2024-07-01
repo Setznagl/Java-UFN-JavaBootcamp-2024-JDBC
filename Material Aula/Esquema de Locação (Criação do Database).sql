@@ -2,9 +2,9 @@
 drop table ator,categoria,endereco,genero,profissao,filme_ator,filme,
 	locacao_filme,locacao,cliente,dependente,cli_endereco;
 
-create database locadora;
+create database JDBC;
 
-alter database locadora;
+alter database JDBC;
 create table ator
 (
 	COD_ATOR serial primary key,
