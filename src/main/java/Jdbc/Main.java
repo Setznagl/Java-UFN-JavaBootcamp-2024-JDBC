@@ -10,11 +10,15 @@ public class Main implements databaseBridge {
         DAO_ator a = DAO_Factory.create_DAO_ator();
 
         ator ator1 = new ator();
-        ator1.setUser_name("Golias");
 
-        a.insertAtor(ator1);
+        ator1.setNome("Dromedário 3");
+        ator1.setCod_ator(9);
+        System.out.println(ator1);
+        a.updateAtor(ator1);
+            /*
         a.deleteAtor(2);
         a.getAllQuery();
+             */
     }
 }
 
