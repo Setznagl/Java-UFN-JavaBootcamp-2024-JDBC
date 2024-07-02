@@ -3,8 +3,9 @@ package Jdbc.models;
 public class ator {
     private int cod_ator;
     private String nome;
+
         public ator(){}
-        ator(int cod_ator, String nome) {
+        public ator(int cod_ator, String nome) {
             this.cod_ator = cod_ator;
             this.nome = nome;
         }

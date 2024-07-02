@@ -3,9 +3,10 @@ package Jdbc.models;
 public class categoria {
     private int cod_cat;
     private String nome;
-    private double valor;
-        categoria(){}
-        categoria(int cod_cat, String nome, float valor) {
+    private float valor;
+
+        public categoria(){}
+        public categoria(int cod_cat, String nome, float valor) {
             this.cod_cat = cod_cat;
             this.nome = nome;
         }
@@ -16,7 +17,7 @@ public class categoria {
     //Setters
     public void setCod_cat(int parametro) {cod_cat = parametro;}
     public void setNome(String parametro) {nome = parametro;}
-    public void setValor(double parametro) {valor = parametro;}
+    public void setValor(float parametro) {valor = parametro;}
 
     @Override
     public String toString() {
