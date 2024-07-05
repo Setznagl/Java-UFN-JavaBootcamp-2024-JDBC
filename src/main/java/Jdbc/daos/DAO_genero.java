@@ -1,7 +1,6 @@
 package Jdbc.daos;
-
 import Jdbc.database.databaseBridge;
-import Jdbc.models.categoria;
+import Jdbc.models.genero;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,15 +9,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DAO_categoria {
+public class DAO_genero {
 
-    public static void createCategoria(categoria parametro) {
-        try (Connection localConnection = databaseBridge.establishConnection();) {
-            String query = "INSERT INTO categoria (nome , valor) VALUES (? , ?)";
+    public static void insertGenero(genero parametro) {
+        try (Connection localConnection = databaseBridge.establishConnection()) {
+            String query = "INSERT INTO genero (nome) VALUES (?)";
             PreparedStatement ps = localConnection.prepareStatement(query);
-            //set strings
+            // Alterando parametros da query
             ps.setString(1, parametro.getNome());
-            ps.setDouble(2, parametro.getValor());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -26,18 +24,18 @@ public class DAO_categoria {
         }
     }
 
-    public static categoria readCategoria(int id) {
+    public static genero readGenero(int id) {
         try (Connection localConnection = databaseBridge.establishConnection()) {
-            String query = "SELECT * FROM categoria WHERE cod_cat = ?";
+            String query = "SELECT * FROM genero WHERE cod_gen = ?";
             PreparedStatement ps = localConnection.prepareStatement(query);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                categoria result = new categoria(rs.getInt("cod_cat"), rs.getString("nome"), rs.getFloat("valor"));
+                genero result = new genero(rs.getInt("cod_gen"), rs.getString("nome"));
                 System.out.println(result);
                 return result;
             } else {
-                throw new SQLException("Category not found");
+                throw new SQLException("Genero not found");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -46,18 +44,17 @@ public class DAO_categoria {
         return null;
     }
 
-    public static List<categoria> readAllCategoria() {
-        var return_list = new ArrayList<categoria>();
+    public static List<genero> readAllAtor() {
+        var return_list = new ArrayList<genero>();
         try (Connection localConnection = databaseBridge.establishConnection()) {
-            String query = "SELECT * FROM categoria";
+            String query = "SELECT * FROM genero";
             PreparedStatement ps = localConnection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 do {
-                    int cod_cat = rs.getInt("cod_cat");
+                    int cod_gen = rs.getInt("cod_gen");
                     String nome = rs.getString("nome");
-                    float valor = rs.getFloat("valor");
-                    return_list.add(new categoria(cod_cat, nome, valor));
+                    return_list.add(new genero(cod_gen, nome));
                 } while (rs.next());
             }
         } catch (SQLException e) {
@@ -68,26 +65,12 @@ public class DAO_categoria {
         return return_list;
     }
 
-    public static void updateCategoria(categoria parametro) {
-        try (Connection localConnection = databaseBridge.establishConnection();) {
-            String query = "UPDATE categoria SET (nome , valor) = (? , ?) WHERE cod_cat = ?";
-            PreparedStatement ps = localConnection.prepareStatement(query);
-            //set strings
-            ps.setString(1, parametro.getNome());
-            ps.setDouble(2, parametro.getValor());
-            ps.setInt(3, parametro.getCod_cat());
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public static void deleteCategoria(categoria parametro) {
+    public static void updateAtor(genero parametro) {
         try (Connection localConnection = databaseBridge.establishConnection()) {
-            String query = "DELETE FROM categoria WHERE cod_cat = ?";
+            String query = "UPDATE genero SET nome = ? WHERE cod_gen = ?";
             PreparedStatement ps = localConnection.prepareStatement(query);
-            ps.setInt(1, parametro.getCod_cat());
+            ps.setString(1, parametro.getNome());
+            ps.setInt(2, parametro.getCod_gen());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -95,5 +78,15 @@ public class DAO_categoria {
         }
     }
 
-
+    public static void deleteAtor(genero parametro) {
+        try (Connection localConnection = databaseBridge.establishConnection()) {
+            String query = "DELETE FROM genero WHERE cod_gen = ?";
+            PreparedStatement ps = localConnection.prepareStatement(query);
+            ps.setInt(1, parametro.getCod_gen());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+    }
 }
