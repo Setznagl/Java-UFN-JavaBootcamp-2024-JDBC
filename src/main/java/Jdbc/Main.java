@@ -2,7 +2,7 @@ package Jdbc;
 import Jdbc.daos.DAO_ator;
 import Jdbc.daos.DAO_categoria;
 import Jdbc.daos.DAO_genero;
-import Jdbc.database.databaseBridge;;
+import Jdbc.database.databaseBridge;
 import Jdbc.services.DAO_Factory;
 import Jdbc.services.Menu;
 
