@@ -32,6 +32,7 @@ public class ator {
 
     @Override
     public String toString() {
-        return "ator [cod_ator=" + cod_ator + ", nome=" + nome + "]";
+        return "ator: " + "cod_ator:  " + cod_ator + ", nome:  " + nome + "\n";
     }
+
 }

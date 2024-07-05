@@ -44,7 +44,7 @@ public class DAO_genero {
         return null;
     }
 
-    public static List<genero> readAllAtor() {
+    public static List<genero> readAllgenero() {
         var return_list = new ArrayList<genero>();
         try (Connection localConnection = databaseBridge.establishConnection()) {
             String query = "SELECT * FROM genero";

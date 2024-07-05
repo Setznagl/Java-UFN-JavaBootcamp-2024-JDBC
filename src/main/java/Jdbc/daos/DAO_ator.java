@@ -91,6 +91,4 @@ public class DAO_ator extends DAO_Factory {
             System.out.println(e.getMessage());
         }
     }
-
-
 }

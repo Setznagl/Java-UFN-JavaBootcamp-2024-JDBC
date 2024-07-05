@@ -32,6 +32,6 @@ public class genero {
 
     @Override
     public String toString() {
-        return "genero{" + "cod_gen=" + cod_gen + ", nome=" + nome + '}';
+        return "genero: " + "cod_gen: " + cod_gen + ", nome: " + nome + "\n";
     }
 }

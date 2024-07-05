@@ -11,6 +11,7 @@ public class categoria {
     public categoria(int cod_cat, String nome, float valor) {
         this.cod_cat = cod_cat;
         this.nome = nome;
+        this.valor = valor;
     }
 
     //Getters
@@ -41,6 +42,7 @@ public class categoria {
 
     @Override
     public String toString() {
-        return "Categoria{" + "cod_cat=" + cod_cat + ", nome=" + nome + '}';
+        return "Categoria: " + "cod_cat: "
+                + cod_cat + ", nome: " + nome + "  valor: " + valor + "\n";
     }
 }

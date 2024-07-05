@@ -12,11 +12,11 @@ import java.util.List;
 
 public class DAO_categoria {
 
-    public static void createCategoria(categoria parametro) {
+    public static void insertCategoria(categoria parametro) {
         try (Connection localConnection = databaseBridge.establishConnection();) {
             String query = "INSERT INTO categoria (nome , valor) VALUES (? , ?)";
             PreparedStatement ps = localConnection.prepareStatement(query);
-            //set strings
+            // Alterando parametros da query
             ps.setString(1, parametro.getNome());
             ps.setDouble(2, parametro.getValor());
             ps.executeUpdate();
@@ -72,7 +72,6 @@ public class DAO_categoria {
         try (Connection localConnection = databaseBridge.establishConnection();) {
             String query = "UPDATE categoria SET (nome , valor) = (? , ?) WHERE cod_cat = ?";
             PreparedStatement ps = localConnection.prepareStatement(query);
-            //set strings
             ps.setString(1, parametro.getNome());
             ps.setDouble(2, parametro.getValor());
             ps.setInt(3, parametro.getCod_cat());
