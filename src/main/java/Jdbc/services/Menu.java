@@ -111,7 +111,7 @@ public interface Menu {
                     }
                     default:
                         break;
-                }
+                }break;
             }
             //Tabela Categoria
             case 2: {
@@ -186,7 +186,7 @@ public interface Menu {
                     }
                     default:
                         break;
-                }
+                }break;
             }
             //Tabela Genero
             case 3: {
@@ -249,7 +249,7 @@ public interface Menu {
                     }
                     default:
                         break;
-                }
+                }break;
             }
             default:
                 break;

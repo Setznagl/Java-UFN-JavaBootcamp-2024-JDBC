@@ -1,0 +1,10 @@
+Jdbc\daos\DAO_genero.class
+Jdbc\services\Menu.class
+Jdbc\daos\DAO_categoria.class
+Jdbc\services\DAO_Factory.class
+Jdbc\daos\DAO_ator.class
+Jdbc\Main.class
+Jdbc\models\ator.class
+Jdbc\models\genero.class
+Jdbc\models\categoria.class
+Jdbc\database\databaseBridge.class
